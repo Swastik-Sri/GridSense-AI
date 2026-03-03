@@ -43,7 +43,7 @@ if 'df' in st.session_state:
 
     if st.button("Analyze Data with AI"):
         try:
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            model = genai.GenerativeModel('gemini-2.5-flash')
             data_summary = df.head(10).to_string()
             prompt = f"You are a Senior EE. Analyze this data snapshot: {data_summary}. Identify grid inefficiencies and anomalies."
             
@@ -54,3 +54,4 @@ if 'df' in st.session_state:
                 st.download_button("Download Report", response.text, file_name="analysis.txt")
         except Exception as e:
             st.error(f"Error: {e}")
+
